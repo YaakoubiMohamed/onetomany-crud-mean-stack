@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-post">
+      <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="inputName">Titre</label>
+            <input class="form-control" type="text" formControlName="titre" 
+            [ngClass]="{ 'is-invalid': submitted && myForm.titre.errors }">
+            <div class="invalid-feedback" *ngIf="submitted && myForm.titre.errors?.required">
+              titre is required.
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="inputEmail3">Auteur</label>
+            <input class="form-control" type="text" formControlName="auteur" 
+            [ngClass]="{ 'is-invalid': submitted && myForm.auteur.errors }">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.auteur.errors?.required">
+              Enter your auteur.
+            </div>
+          </div>          
+  
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Ajouter</button>
+          </div>
+        </form>
+  
+      </div>
+    </div><!-- form card register -->
+  </div>
